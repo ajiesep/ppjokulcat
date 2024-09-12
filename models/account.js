@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Account.belongsTosTo(models.User);
-      Account.belongsToMany(models.Product, { through: models.accountProduct });
-      Account.hasMany(models.accountProduct);
+      Account.belongsTo(models.User);
+      Account.belongsToMany(models.Product, { through: models.AccountProduct });
+      Account.hasMany(models.AccountProduct);
     }
   }
   Account.init(

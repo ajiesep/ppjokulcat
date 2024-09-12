@@ -1,15 +1,17 @@
-const express =require('express')
-const UserController=require('../controllers/UserController')
+const express = require('express')
+const UserController = require('../controllers/UserController')
 const router = express.Router()
 
-
+router.get('/', (req, res) => {
+    res.send('Hello World!')
+})
 // register
-app.get('/register',UserController.formRegister)
-app.post('/register',UserController.postRegister)
+router.get('/register', UserController.formRegister)
+router.post('/register', UserController.postRegister)
 
 //login
-app.get('/register',UserController.formRegister)
-app.post('/register',UserController.postRegister)
+router.get('/login', UserController.formRegister)
+router.post('/login', UserController.postRegister)
 
 
 
