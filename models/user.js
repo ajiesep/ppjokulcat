@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
           notNull: {
             msg: "password cannot be null",
           },
+          len: {
+            args: [8],
+            msg: "password must be at least 8 characters long"
+          }
         },
       },
       role: {

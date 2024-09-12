@@ -13,8 +13,48 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.AccountProduct);
     }
 
-    // NANTI BIKIN QR DISINI
-    // NANTI BIKIN SEARCH DISINI
+    //  QRcode 
+    static async dataQR(id) {
+      try {
+        let product = await Product.findByPk(id)
+        let data = {
+          name: product.productName,
+          price: product.price
+        }
+
+        return data
+
+      } catch (error) {
+        throw error
+      }
+    }
+
+    // SEARCH 
+    static async searchProduct(search) {
+      try {
+        let data
+        if (search) {
+          data = await Product.findAll({
+            order: [['productName']],
+            where: {
+              productName: {
+                [Op.iLike]: `%${search}%`
+              }
+            }
+          })
+        }
+        else {
+          data = await Product.findAll({
+            order: [['productName']]
+          })
+        }
+        return data
+
+      } catch (error) {
+        throw error
+      }
+    }
+
   }
   Product.init(
     {
