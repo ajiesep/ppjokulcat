@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Account extends Model {
     /**
@@ -11,16 +9,67 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Account.belongsTosTo(models.User);
+      Account.belongsToMany(models.Product, { through: models.accountProduct });
+      Account.hasMany(models.accountProduct);
     }
   }
-  Account.init({
-    name: DataTypes.STRING,
-    address: DataTypes.STRING,
-    phoneNumber: DataTypes.INTEGER,
-    role: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Account',
-  });
+  Account.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Name cannot be Null",
+          },
+          notEmpty: {
+            msg: "Name cannot be Empty",
+          },
+        },
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Address cannot be Null",
+          },
+          notEmpty: {
+            msg: "Address cannot be Empty",
+          },
+        },
+      },
+      phoneNumber: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "PhoneNumber cannot be Null",
+          },
+          notEmpty: {
+            msg: "PhoneNumber cannot be Empty",
+          },
+        },
+      },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: {
+            msg: "Role cannot be Null",
+          },
+          notEmpty: {
+            msg: "Role cannot be Empty",
+          },
+        },
+      },
+      UserId: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Account",
+    }
+  );
   return Account;
 };
