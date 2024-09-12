@@ -13,9 +13,8 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.AccountProduct);
     }
 
-    // NANTI BIKIN SEARCH DISINI
-
     // NANTI BIKIN QR DISINI
+    // NANTI BIKIN SEARCH DISINI
   }
   Product.init(
     {
