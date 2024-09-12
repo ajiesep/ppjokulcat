@@ -1,3 +1,5 @@
+/*
+
 npx sequelize-cli model:generate --name User --attributes email:string,password:string,role:string
 
 npx sequelize-cli model:generate --name Account --attributes name:string,address:string,phoneNumber:integer,role:string
@@ -16,3 +18,7 @@ npx sequelize-cli seed:generate --name seederProduct
 npx sequelize db:seed:all     
 edit
 edit1
+
+
+
+*/
