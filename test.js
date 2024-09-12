@@ -14,3 +14,5 @@ npx sequelize-cli migration:generate --name AddColumnUserId
 npx sequelize-cli seed:generate --name seederCategory
 npx sequelize-cli seed:generate --name seederProduct
 npx sequelize db:seed:all     
+edit
+edit1
