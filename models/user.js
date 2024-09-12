@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // nanti bikin HOOK disini
+ 
 
   return User;
 };
